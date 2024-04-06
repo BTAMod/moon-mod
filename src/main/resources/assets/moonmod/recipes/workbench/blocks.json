@@ -1,0 +1,578 @@
+[
+  {
+    "name": "moonmod:workbench/cheese_block_from_milk",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "11",
+      "11"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "item.bucket.milk",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.cheese",
+      "amount": 4,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/cheese_block_from_cheese",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "11",
+      "11"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "item.moonmod.cheese",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.cheese",
+      "amount": 1,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_white_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 0
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 0
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_orange_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 1
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 1
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_magenta_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 2
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 2
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_lightblue_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 3
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 3
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_yellow_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 4
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 4
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_lime_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 5
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 5
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_pink_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 6
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 6
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_gray_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 7
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 7
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_silver_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 8
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 8
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_cyan_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 9
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 9
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_purple_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 10
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 10
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_blue_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 11
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 11
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_brown_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 12
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 12
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_green_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 13
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 13
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_red_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 14
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 14
+    },
+    "consumeContainers": false
+  },
+  {
+    "name": "moonmod:workbench/reinforced_cloth_black_from_wool",
+    "type": "minecraft:crafting/shaped",
+    "pattern": [
+      "111",
+      "121",
+      "111"
+    ],
+    "symbols": [
+      {
+        "symbol": "1",
+        "stack": {
+          "key": "tile.wool",
+          "amount": 1,
+          "meta": 15
+        }
+      },
+      {
+        "symbol": "2",
+        "stack": {
+          "key": "item.ingot.gold",
+          "amount": 1,
+          "meta": 0
+        }
+      }
+    ],
+    "result": {
+      "key": "tile.moonmod.wool.reinforced",
+      "amount": 8,
+      "meta": 15
+    },
+    "consumeContainers": false
+  }
+]

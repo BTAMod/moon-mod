@@ -6,7 +6,7 @@ public class ItemScrewdriver extends Item {
 
 	public ItemScrewdriver(String name, int id) {
 		super(name, id);
-		this.maxStackSize = 1;
-		this.setMaxDamage(128);
+		setMaxStackSize(1);
+		setMaxDamage(63);
 	}
 }

@@ -1,18 +1,18 @@
 package teamport.moonmod.world;
 
-import teamport.moonmod.MoonMod;
-import teamport.moonmod.block.MoonModBlocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.world.Dimension;
-import net.minecraft.core.world.PortalHandler;
 import net.minecraft.core.world.World;
+import teamport.moonmod.MMConfig;
+import teamport.moonmod.MoonMod;
+import teamport.moonmod.block.MMBlocks;
 
 public class ModDimensions {
-	public static final Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MoonModBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
+	public static final Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MMBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
 	static
 	{
-		Dimension.registerDimension(3, dimensionMoon);
+		Dimension.registerDimension(MMConfig.cfg.getInt("IDs.dimension"), dimensionMoon);
 	}
 	public static void register() {}
 
@@ -27,15 +27,12 @@ public class ModDimensions {
 		player.dimension = targetDimension;
 		world.setEntityDead(player);
 		player.removed = false;
-		double x = player.x;
-		double z = player.z;
-		player.moveTo(x *= (double)Dimension.getCoordScale(lastDim, newDim), player.y, z *= (double)Dimension.getCoordScale(lastDim, newDim), player.yRot, player.xRot);
+		player.moveTo(player.x * Dimension.getCoordScale(lastDim, newDim), player.y, player.z * Dimension.getCoordScale(lastDim, newDim), player.yRot, player.xRot);
+
 		if (player.isAlive()) {
 			world.updateEntityWithOptionalForce(player, false);
 		}
-		if (player.isAlive()) {
-			world.updateEntityWithOptionalForce(player, false);
-		}
+
 		world = new World(world, newDim);
 		if (newDim == lastDim.homeDim) {
 			mc.changeWorld(world, "Leaving " + lastDim.getTranslatedName(), player);

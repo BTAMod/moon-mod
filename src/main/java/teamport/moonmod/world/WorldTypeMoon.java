@@ -1,6 +1,5 @@
 package teamport.moonmod.world;
 
-import net.minecraft.core.block.Block;
 import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.util.phys.Vec3d;
 import net.minecraft.core.world.World;
@@ -11,9 +10,9 @@ import net.minecraft.core.world.season.Seasons;
 import net.minecraft.core.world.type.WorldTypeOverworld;
 import net.minecraft.core.world.weather.Weather;
 import net.minecraft.core.world.wind.WindManagerGeneric;
-import teamport.moonmod.block.MoonModBlocks;
+import teamport.moonmod.block.MMBlocks;
 
-public class WorldTypeMoon extends WorldTypeOverworld {
+public class WorldTypeMoon extends WorldTypeOverworld implements ISpace {
 
 	public WorldTypeMoon(String languageKey) {
 		super(languageKey, Weather.overworldClear, new WindManagerGeneric(), SeasonConfig.builder()
@@ -58,7 +57,7 @@ public class WorldTypeMoon extends WorldTypeOverworld {
 
 	@Override
 	public boolean isValidSpawn(World world, int x, int y, int z) {
-		return world.getBlockId(x, y -1, z) == MoonModBlocks.regolith.id;
+		return world.getBlockId(x, y -1, z) == MMBlocks.regolith.id;
 	}
 
 	@Override
@@ -122,5 +121,30 @@ public class WorldTypeMoon extends WorldTypeOverworld {
 		f4 *= f2 * 0.94F + 0.06F;
 		f5 *= f2 * 0.91F + 0.09F;
 		return Vec3d.createVector(f3, f4, f5);
+	}
+
+	@Override
+	public float getGravityScalar() {
+		return 0.22F;
+	}
+
+	@Override
+	public boolean suffocate() {
+		return true;
+	}
+
+	@Override
+	public String getCelestialMoonTexture() {
+		return "/terrain/earth.png";
+	}
+
+	@Override
+	public String getCelestialSunTexture() {
+		return "/terrain/sun.png";
+	}
+
+	@Override
+	public float getStarBrightness(World world) {
+		return 1.0F;
 	}
 }

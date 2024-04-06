@@ -3,34 +3,48 @@ package teamport.moonmod.block;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
-import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.WorldSource;
+import turniplabs.halplibe.helper.TextureHelper;
+
+import static teamport.moonmod.MoonMod.MOD_ID;
 
 public class BlockReinforcedWool extends Block {
-	public BlockReinforcedWool(String key, int id, Material material) {
+
+	private final int[] texture = new int[]{
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlock.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockOrange.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockMagenta.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockLightBlue.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockYellow.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockLime.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockPink.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockGray.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockLightGray.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockCyan.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockPurple.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockBlue.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockBrown.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockGreen.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockRed.png"),
+		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockBlack.png"),
+	};
+
+	public BlockReinforcedWool(String key, int id) {
 		super(key, id, Material.cloth);
 	}
 
-	@Override
-	public void onBlockAdded(World world, int i, int j, int k) {
-		world.setBlockMetadata(i, j, k, 0);
-	}
-
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
-		return new ItemStack[]{new ItemStack(this, 1, 0)};
+		return new ItemStack[]{new ItemStack(this, 1, meta)};
 	}
 
 	@Override
-	public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer) {
-		if (world.getBlockMetadata(i, j, k) == 1)
-			blockHardness(-1f);
-		else
-			blockHardness(1.1F);
-	}
+	public int getBlockTexture(WorldSource blockAccess, int x, int y, int z, Side side) {
+		int metadata = blockAccess.getBlockMetadata(x, y, z);
 
-	private void blockHardness(float f) {
+		return texture[metadata];
 	}
-
 }

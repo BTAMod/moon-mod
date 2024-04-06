@@ -7,7 +7,8 @@ import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.World;
-import teamport.moonmod.item.MoonModItems;
+import teamport.moonmod.item.ItemScrewdriver;
+import teamport.moonmod.item.MMItems;
 
 public class BlockCheese extends Block {
 	public BlockCheese(String key, int id, Material material) {
@@ -21,23 +22,19 @@ public class BlockCheese extends Block {
 			case PICK_BLOCK:
 				return new ItemStack[]{new ItemStack(this)};
 			default:
-				return new ItemStack[]{new ItemStack(MoonModItems.cheese, 4)};
+				return new ItemStack[]{new ItemStack(MMItems.cheese, 4)};
 		}
 	}
 
 	@Override
-	public boolean blockActivated(World var1, int var2, int var3, int var4,
-								  EntityPlayer entityPlayer) {
-
-		int slot = entityPlayer.inventory.currentItem;
-		ItemStack is = entityPlayer.inventory.mainInventory[slot];
-		if (is == null || is.itemID != MoonModItems.sonicScrewdriver.id)
+	public boolean blockActivated(World world, int x, int y, int z, EntityPlayer player) {
+		if (player.getHeldItem() == null || !(player.getHeldItem().getItem() instanceof ItemScrewdriver))
 			return false;
+		else if (player.getHeldItem().getItem() instanceof ItemScrewdriver) {
+			player.getHeldItem().damageItem(1, player);
 
-		is.damageItem(1, entityPlayer	);
-
-		BlockPortalMoon portal = (BlockPortalMoon) MoonModBlocks.portalMoon;
-		return portal.tryToCreatePortal(var1, var2, var3, var4);
+			BlockPortalMoon portal = (BlockPortalMoon) MMBlocks.portalMoon;
+			return portal.tryToCreatePortal(world, x, y, z);
+		} else return false;
 	}
-
 }
