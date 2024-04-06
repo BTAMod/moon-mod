@@ -46,14 +46,8 @@ public class SurfaceGeneratorMoon implements SurfaceGenerator {
 		double[] soilThicknessNoise = this.soilNoise
 			.get(null, chunkX * 16, chunkZ * 16, 0.0, 16, 16, 1, beachScale * 2.0, beachScale * 2.0, beachScale * 2.0);
 		double[] stoneLayerNoise = null;
-		double[] stoneLayerNoiseGranite = null;
-		double[] stoneLayerNoiseLimestone = null;
 		if (this.generateStoneVariants) {
 			stoneLayerNoise = this.soilNoise
-				.get(null, chunkX * 16, chunkZ * 16, 0.0, 16, 16, 1, beachScale * 4.0, beachScale * 4.0, beachScale * 4.0);
-			stoneLayerNoiseGranite = this.mainNoise
-				.get(null, chunkX * 16, chunkZ * 16, 0.0, 16, 16, 1, beachScale * 4.0, beachScale * 4.0, beachScale * 4.0);
-			stoneLayerNoiseLimestone = this.mainNoise
 				.get(null, chunkX * 16, chunkZ * 16, 0.0, 16, 16, 1, beachScale * 4.0, beachScale * 4.0, beachScale * 4.0);
 		}
 
@@ -61,18 +55,10 @@ public class SurfaceGeneratorMoon implements SurfaceGenerator {
 			for(int x = 0; x < 16; ++x) {
 				int soilThickness = (int)(soilThicknessNoise[z + x * 16] / 3.0 + 3.0 + rand.nextDouble() * 0.25);
 				boolean generateBasaltLayer = false;
-				boolean generateGraniteLayer = false;
-				boolean generateLimestoneLayer = false;
 				int basaltThicknessLevel = 0;
-				int graniteThicknessLevel = 0;
-				int limestoneThicknessLevel = 0;
 				if (this.generateStoneVariants) {
 					generateBasaltLayer = stoneLayerNoise[z + x * 16] + rand.nextDouble() * 0.2 > 0.0;
-					generateGraniteLayer = stoneLayerNoiseGranite[z + x * 16] + rand.nextDouble() * 0.2 > 2.0;
-					generateLimestoneLayer = stoneLayerNoiseLimestone[z + x * 16] + rand.nextDouble() * 0.2 > 3.0;
 					basaltThicknessLevel = (int)(stoneLayerNoise[z + x] + rand.nextDouble() * 0.5);
-					graniteThicknessLevel = (int)(stoneLayerNoiseGranite[z + x] + rand.nextDouble() * 0.5);
-					limestoneThicknessLevel = (int)(stoneLayerNoiseLimestone[z + x] + rand.nextDouble() * 0.5);
 				}
 
 				int currentLayerDepth = -1;
@@ -120,14 +106,6 @@ public class SurfaceGeneratorMoon implements SurfaceGenerator {
 								&& y <= minY + 30 + basaltThicknessLevel - rand.nextInt(3)
 								&& generateBasaltLayer) {
 								chunkGeneratorResult.setBlock(x, y, z, Block.basalt.id);
-							} else if (y >= minY + 64 + graniteThicknessLevel - rand.nextInt(3)
-								&& y <= minY + 128 + graniteThicknessLevel - rand.nextInt(3)
-								&& generateGraniteLayer) {
-								chunkGeneratorResult.setBlock(x, y, z, Block.granite.id);
-							} else if (y >= minY + 64 + limestoneThicknessLevel - rand.nextInt(3)
-								&& y <= minY + 128 + limestoneThicknessLevel - rand.nextInt(3)
-								&& generateLimestoneLayer) {
-								chunkGeneratorResult.setBlock(x, y, z, Block.limestone.id);
 							}
 						} else {
 							if (currentLayerDepth > 0) {

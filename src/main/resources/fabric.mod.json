@@ -20,12 +20,26 @@
 
   "license": "CC0-1.0",
 
+	"icon": "icon.png",
+
   "environment": "*",
   "entrypoints": {
     "main": [
       "teamport.moonmod.MoonMod"
     ],
-		"preLaunch": [
+		"beforeGameStart": [
+			"teamport.moonmod.MoonMod"
+		],
+		"afterGameStart": [
+			"teamport.moonmod.MoonMod"
+		],
+		"beforeClientStart": [
+			"teamport.moonmod.MoonMod"
+		],
+		"afterClientStart": [
+			"teamport.moonmod.MoonMod"
+		],
+		"recipesReady": [
 			"teamport.moonmod.MoonMod"
 		],
 		"terrain-api": [

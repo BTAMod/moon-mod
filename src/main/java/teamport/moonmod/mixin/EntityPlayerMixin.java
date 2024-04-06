@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamport.moonmod.world.ModDimensions;
 
 @Mixin(value = EntityPlayer.class, remap = false)
-public class EntityPlayerMixin extends EntityLiving {
+public abstract class EntityPlayerMixin extends EntityLiving {
 	@Shadow
 	public int dimension;
 	@Unique
@@ -23,7 +23,7 @@ public class EntityPlayerMixin extends EntityLiving {
 	}
 
 	@Inject(method = "tick()V", at = @At("TAIL"))
-	private void moonThreshold(CallbackInfo ci){
+	private void moonMod_threshold(CallbackInfo ci){
 		int delayMillis = 8000;
 		long currentTime = System.currentTimeMillis();
 		if (this.y > this.world.getWorldType().getMaxY()+5 && !world.isDaytime() && (currentTime-timeOfLastDimensionShift > delayMillis)){
@@ -38,5 +38,4 @@ public class EntityPlayerMixin extends EntityLiving {
 			timeOfLastDimensionShift = currentTime;
 		}
 	}
-
 }
