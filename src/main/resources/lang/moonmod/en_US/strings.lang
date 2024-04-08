@@ -5,4 +5,5 @@ moonmod.biome.moon=Lunar Plains
 
 dimension.moon.name=The Moon
 
-moonmod.tent.fail=Cannot build a tent here.
+moonmod.tent.build.fail=Cannot build a tent here.
+moonmod.tent.destroy.fail=Cannot destroy tent.

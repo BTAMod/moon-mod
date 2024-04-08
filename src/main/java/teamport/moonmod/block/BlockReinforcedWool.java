@@ -7,14 +7,12 @@ import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
-import net.minecraft.core.world.WorldSource;
 import turniplabs.halplibe.helper.TextureHelper;
 
 import static teamport.moonmod.MoonMod.MOD_ID;
 
 public class BlockReinforcedWool extends Block {
-
-	private final int[] texture = new int[]{
+	private static final int[] textures = new int[] {
 		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlock.png"),
 		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockOrange.png"),
 		TextureHelper.getOrCreateBlockTextureIndex(MOD_ID, "clothBlockMagenta.png"),
@@ -42,9 +40,7 @@ public class BlockReinforcedWool extends Block {
 	}
 
 	@Override
-	public int getBlockTexture(WorldSource blockAccess, int x, int y, int z, Side side) {
-		int metadata = blockAccess.getBlockMetadata(x, y, z);
-
-		return texture[metadata];
+	public int getBlockTextureFromSideAndMetadata(Side side, int data) {
+		return textures[data];
 	}
 }

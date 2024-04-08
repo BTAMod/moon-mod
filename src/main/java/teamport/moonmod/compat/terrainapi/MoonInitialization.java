@@ -1,5 +1,6 @@
 package teamport.moonmod.compat.terrainapi;
 
+import teamport.moonmod.world.feature.WorldFeatureCheese;
 import teamport.moonmod.world.feature.WorldFeatureCrater;
 import useless.terrainapi.generation.overworld.OverworldRandomFeatures;
 import useless.terrainapi.initialization.BaseInitialization;
@@ -26,6 +27,7 @@ public class MoonInitialization extends BaseInitialization {
 	@Override
 	protected void initRandom() {
 		randomFeatures.addFeatureSurface(new WorldFeatureCrater(), 16);
+		randomFeatures.addFeatureSurface(new WorldFeatureCheese(), 32);
 	}
 
 	@Override
