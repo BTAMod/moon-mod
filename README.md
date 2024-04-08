@@ -1,28 +1,22 @@
-# Example Mod
+# Moon Mod
 
-Template for making Babric mods for BTA!
-
-**Note: *DO NOT fork this repository unless you want to contribute!***
+Originally by sutr90 from the Minecraft Forum, this mod adds The Moon!
 
 ## Prerequisites
-- JDK for Java 17 ([Eclipse Temurin](https://adoptium.net/temurin/releases/) recommended)
-- IntelliJ IDEA
-- Minecraft Development plugin (Optional, but highly recommended)
+- BTA 7.1 pre2a
+- [Halplibe](https://github.com/Turnip-Labs/bta-halplibe) 3.5.1 or above
+- [Dragonfly](https://github.com/UselessSolutions/DragonFly) 1.4.7-7.1 or above
+- [TerrainAPI](https://github.com/UselessSolutions/TerrainAPI) 1.4.4-7.1 or above
 
-## Setup instructions
-   
+## Instructions
+To get to the Moon you must make a cheese portal using milk. (Four buckets is a block!)
 
-1. Click the `Use this template` button on this repo's page above. Choose `Create a new repository`, you will be redirected to a new page. Enter your repo's name and description, and hit `Create repository`.  
-   To get your project, open IntelliJ IDEA and click `Get from VCS`. Select `Repository URL` and enter your repo's url
+Then you need to make a Sonic Screwdriver using redstone and iron.
 
-2. After the project has finished importing, close it and open it again.  
-   If that does not work, open the right sidebar with `Gradle` on it, open `Tasks` > `fabric` and run `ideaSyncTask`.
+Then once your portal is assembled, right click it with the screwdriver!
 
-3. Create a new run configuration by going in `Run > Edit Configurations`.  
-   Then click on the plus icon and select Gradle. In the `Tasks and Arguments` field enter `build`.  
-   Running it will build your finished jar files and put them in `build/libs/`.
+But remember - there's __NO AIR__ on the moon!
 
-4. Lastly, open `File` > `Settings` and head to `Build, Execution, Development` > `Build Tools` > `Gradle`.  
-   Make sure `Build and run using` and `Run tests using` is set to `Gradle`.
+The spacesuit requires glass, iron, and reinforced cloth. Cloth is made with gold and wool.
 
-5. Done! Now, all that's left is to change every mention of `examplemod` and `turniplabs` to your own mod id and mod group, respectively. Happy modding!
+Now you're set to explore the natural satellite of Minecraftia!
