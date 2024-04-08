@@ -1,7 +1,6 @@
 package teamport.moonmod.world;
 
 import net.minecraft.core.world.World;
-import net.minecraft.core.world.generate.MapGenCaves;
 import net.minecraft.core.world.generate.MapGenCavesHell;
 import net.minecraft.core.world.generate.chunk.perlin.ChunkGeneratorPerlin;
 import net.minecraft.core.world.generate.chunk.perlin.overworld.TerrainGeneratorOverworld;

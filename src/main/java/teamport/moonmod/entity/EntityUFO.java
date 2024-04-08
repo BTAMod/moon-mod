@@ -2,10 +2,13 @@ package teamport.moonmod.entity;
 
 import net.minecraft.core.block.Block;
 import net.minecraft.core.entity.animal.EntityAnimal;
+import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.item.Item;
+import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.world.World;
 import teamport.moonmod.block.MMBlocks;
+import teamport.moonmod.item.MMItems;
 
 public class EntityUFO extends EntityAnimal {
 
@@ -16,7 +19,7 @@ public class EntityUFO extends EntityAnimal {
 
 	@Override
 	public String getLivingSound() {
-		return null;
+		return random.nextInt(1000) == 0 ? "moonmod.yippee" : null;
 	}
 
 	@Override
@@ -45,5 +48,31 @@ public class EntityUFO extends EntityAnimal {
 		} else {
 			return Block.blocksList[id] == MMBlocks.regolith;
 		}
+	}
+
+	@Override
+	public boolean interact(EntityPlayer player) {
+		super.interact(player);
+		ItemStack stack = player.getHeldItem();
+
+		if (stack != null && stack.getItem() == MMItems.cheese) {
+			stack.consumeItem(player);
+			playLivingSound();
+
+			player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+
+			return true;
+		} else return false;
+	}
+
+	@Override
+	public void onLivingUpdate() {
+		EntityPlayer player = world.getClosestPlayerToEntity(this, 8.0d);
+		if (player != null && player.getHeldItem() != null) {
+			if (player.getHeldItem().getItem() == MMItems.cheese) {
+				faceEntity(player, 1.0f, 1.0f);
+				move(0.0d, yd, 0.0d);
+			} else super.onLivingUpdate();
+		} else if (player == null || player.getHeldItem() == null) super.onLivingUpdate();
 	}
 }

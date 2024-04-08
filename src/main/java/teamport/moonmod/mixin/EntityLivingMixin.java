@@ -7,18 +7,23 @@ import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.world.World;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import teamport.moonmod.block.MMBlocks;
 import teamport.moonmod.entity.EntityUFO;
 import teamport.moonmod.item.MMItems;
 import teamport.moonmod.world.ISpace;
 
 @Mixin(value = EntityLiving.class, remap = false)
 public abstract class EntityLivingMixin extends Entity {
+	@Shadow
+	public abstract boolean canBreatheUnderwater();
+
 	@Unique
 	private double gravityScale;
 	@Unique
@@ -44,21 +49,27 @@ public abstract class EntityLivingMixin extends Entity {
 	@Redirect(method = "trySuffocate", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/entity/EntityLiving;isUnderLiquid(Lnet/minecraft/core/block/material/Material;)Z"))
 	private boolean moonMod_suffocate(EntityLiving living, Material material){
 		boolean shouldSuffocate = false;
+		boolean isInside = false;
 
-		if (living.world.getWorldType() instanceof ISpace){
-			shouldSuffocate = ((ISpace) living.world.getWorldType()).suffocate();
+		for (int _x = (int) (x - 3); _x < x + 3; _x++) {
+			for (int _y = (int) (y - 6); _y < y; _y++) {
+				for (int _z = (int) (z - 3); _z < z + 3; _z++) {
+					if (world.getBlockId(_x, _y, _z) == MMBlocks.woolInvincible.id) isInside = true;
+				}
+			}
 		}
 
-		if (!moonMod_hasSuit() && (shouldSuffocate || isUnderLiquid(material)) && !(living instanceof EntityUFO)) {
-			--this.airSupply;
-			if (this.airSupply == -20)
-				this.airSupply = 0;
+		if (living.world.getWorldType() instanceof ISpace){
+			shouldSuffocate = ((ISpace) living.world.getWorldType()).suffocate() && !isInside;
+		}
+
+		if (!moonMod_hasSuit() && (shouldSuffocate || isUnderLiquid(material) && !canBreatheUnderwater()) && !(living instanceof EntityUFO)) {
+			if (airSupply-- <= -20) airSupply = 0;
 
 			return true;
 		}
         return false;
     }
-
 
 	@Inject(method = "moveEntityWithHeading(FF)V", at = @At("HEAD"))
 	private void moonMod_getGravity(float moveStrafing, float moveForward, CallbackInfo cbi){
@@ -69,15 +80,13 @@ public abstract class EntityLivingMixin extends Entity {
 	}
 
 	@Redirect(method = "moveEntityWithHeading(FF)V", at = @At(value = "FIELD", target = "Lnet/minecraft/core/entity/EntityLiving;yd:D", opcode = Opcodes.PUTFIELD))
-	private void moonMod_setEntityGravity(EntityLiving entity, double yd) { //Probably terrible way of modifying gravity by a scalar
+	private void moonMod_setEntityGravity(EntityLiving entity, double yd) { // A probably terrible way of modifying gravity by a scalar
 		double offset = -(yd - this.yd);
-		if ((0.021 > offset && offset > 0.019) || (0.081 > offset && offset > 0.079)){ // If falling in water or in air
+		if ((0.021 > offset && offset > 0.019) || (0.081 > offset && offset > 0.079))  // If falling in water or in air
 			entity.yd -= offset * gravityScale;
-		} else if ((-0.251 < yd && yd < -0.249)) { // Terminal velocity
-			entity.yd = yd * gravityScale;
-		} else { // Else regular behavior
-			entity.yd = yd;
-		}
+		else // Else regular behavior
+			if ((-0.251 < yd && yd < -0.249)) entity.yd = yd * gravityScale; // Terminal velocity.
+			else entity.yd = yd; // Regular behavior.
 	}
 
 

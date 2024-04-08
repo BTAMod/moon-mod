@@ -40,7 +40,7 @@
 			"teamport.moonmod.MoonMod"
 		],
 		"recipesReady": [
-			"teamport.moonmod.MoonMod"
+			"teamport.moonmod.MMRecipes"
 		],
 		"terrain-api": [
 			"teamport.moonmod.compat.terrainapi.TerrainAPIPlugin"

@@ -1,7 +1,11 @@
 tile.moonmod.regolith.name=Regolith
 tile.moonmod.regolith.desc=Fragmented and unconsolidated lunar layering.
+
 tile.moonmod.cheese.name=Block of Cheese
 tile.moonmod.cheese.desc=A solid curd of coagulated milk.
+
+tile.moonmod.portal.moon.name=Moon Portal
+tile.moonmod.portal.moon.desc=A portal to the Moon.
 
 tile.moonmod.wool.reinforced.name=Reinforced Wool
 tile.moonmod.wool.reinforced.desc=Wool and cloth lined with gold to protect from UVs.
@@ -38,10 +42,40 @@ tile.moonmod.wool.reinforced.red.desc=Wool lined with gold to protect from UVs. 
 tile.moonmod.wool.reinforced.black.name=Black Reinforced Wool
 tile.moonmod.wool.reinforced.black.desc=Wool lined with gold to protect from UVs. Tinted black.
 
-tile.moonmod.wool.reinforced.tent.name=Reinforced Tent
-tile.moonmod.wool.reinforced.tent.desc=A portable collapsable shelter.
-tile.moonmod.portal.moon.name=Moon Portal
-tile.moonmod.portal.moon.desc=A portal to the Moon.
+tile.moonmod.tent.name=Moon Tent
+tile.moonmod.tent.desc=A portable, collapsable shelter.
+tile.moonmod.tent.white.name=White Moon Tent
+tile.moonmod.tent.white.desc=A portable, collapsable shelter.
+tile.moonmod.tent.orange.name=Orange Moon Tent
+tile.moonmod.tent.orange.desc=A portable, collapsable shelter. Tinted orange.
+tile.moonmod.tent.magenta.name=Magenta Moon Tent
+tile.moonmod.tent.magenta.desc=A portable, collapsable shelter. Tinted magenta.
+tile.moonmod.tent.lightblue.name=Light Blue Moon Tent
+tile.moonmod.tent.lightblue.desc=A portable, collapsable shelter. Tinted light blue.
+tile.moonmod.tent.yellow.name=Yellow Moon Tent
+tile.moonmod.tent.yellow.desc=A portable, collapsable shelter. Tinted yellow.
+tile.moonmod.tent.lime.name=Lime Moon Tent
+tile.moonmod.tent.lime.desc=A portable, collapsable shelter. Tinted lime.
+tile.moonmod.tent.pink.name=Pink Moon Tent
+tile.moonmod.tent.pink.desc=A portable, collapsable shelter. Tinted pink.
+tile.moonmod.tent.gray.name=Gray Moon Tent
+tile.moonmod.tent.gray.desc=A portable, collapsable shelter. Tinted gray.
+tile.moonmod.tent.silver.name=Light Gray Moon Tent
+tile.moonmod.tent.silver.desc=A portable, collapsable shelter. Tinted Light Gray.
+tile.moonmod.tent.cyan.name=Cyan Moon Tent
+tile.moonmod.tent.cyan.desc=A portable, collapsable shelter. Tinted cyan.
+tile.moonmod.tent.purple.name=Purple Moon Tent
+tile.moonmod.tent.purple.desc=A portable, collapsable shelter. Tinted purple.
+tile.moonmod.tent.blue.name=Blue Moon Tent
+tile.moonmod.tent.blue.desc=A portable, collapsable shelter. Tinted blue.
+tile.moonmod.tent.brown.name=Brown Moon Tent
+tile.moonmod.tent.brown.desc=A portable, collapsable shelter. Tinted brown.
+tile.moonmod.tent.green.name=Green Moon Tent
+tile.moonmod.tent.green.desc=A portable, collapsable shelter. Tinted green.
+tile.moonmod.tent.red.name=Red Moon Tent
+tile.moonmod.tent.red.desc=A portable, collapsable shelter. Tinted red.
+tile.moonmod.tent.black.name=Black Moon Tent
+tile.moonmod.tent.black.desc=A portable, collapsable shelter. Tinted black.
 
 tile.moonmod.lamp.lit.name=Lit Lamp
 tile.moonmod.lamp.lit.desc=How did you get this?!

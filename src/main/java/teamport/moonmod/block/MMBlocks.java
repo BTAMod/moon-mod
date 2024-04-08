@@ -4,7 +4,6 @@ import net.minecraft.client.render.block.color.BlockColorWater;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
-import net.minecraft.core.item.block.ItemBlock;
 import net.minecraft.core.item.block.ItemBlockPainted;
 import net.minecraft.core.sound.BlockSounds;
 import teamport.moonmod.MMConfig;
@@ -28,7 +27,6 @@ public class MMBlocks {
 		.setBlockSound(BlockSounds.CLOTH)
 		.setHardness(1.1f)
 		.setResistance(6.0f)
-		.setTextures("clothBlock.png")
 		.setItemBlock(block -> new ItemBlockPainted(block, false))
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
 		.build(new BlockReinforcedWool("wool.reinforced", blockID++));
@@ -45,15 +43,17 @@ public class MMBlocks {
 		.setHardness(1.1f)
 		.setResistance(6.0f)
 		.setTextures("tent.png")
+		.setItemBlock(block -> new ItemBlockPainted(block, false))
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
-		.build(new BlockTent("wool.reinforced.tent", blockID++));
+		.build(new BlockTent("tent", blockID++));
 
 	public static final Block tentInvincible = new BlockBuilder(MOD_ID)
 		.setBlockSound(BlockSounds.CLOTH)
 		.setUnbreakable()
 		.setTextures("tent.png")
+		.setItemBlock(block -> new ItemBlockPainted(block, false))
 		.setTags(BlockTags.NOT_IN_CREATIVE_MENU)
-		.build(new BlockTent("wool.reinforced.tent", blockID++));
+		.build(new BlockTent("tent", blockID++));
 
 	public static final Block cheese = new BlockBuilder(MOD_ID)
 		.setBlockSound(BlockSounds.WOOD)
@@ -76,11 +76,11 @@ public class MMBlocks {
 	public static final Block litLamp = new BlockBuilder(MOD_ID)
 		.setBlockSound(BlockSounds.GLASS)
 		.setHardness(0.5f)
+		.setTags((BlockTags.NOT_IN_CREATIVE_MENU))
 		.build(new BlockLitLamp("lamp.lit", blockID++))
 		.withLightEmission(0.9375f)
 		.withDisabledStats()
-		.withDisabledNeighborNotifyOnMetadataChange()
-		.withTags(BlockTags.NOT_IN_CREATIVE_MENU);
+		.withDisabledNeighborNotifyOnMetadataChange();
 
 	public void initializeBlocks(){
 	}

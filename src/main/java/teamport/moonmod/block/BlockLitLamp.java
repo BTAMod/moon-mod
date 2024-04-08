@@ -11,7 +11,6 @@ import java.util.Random;
 public class BlockLitLamp extends BlockLamp {
 	public BlockLitLamp(String key, int id) {
 		super(key, id, true);
-		setTicking(true);
 	}
 
 	@Override
