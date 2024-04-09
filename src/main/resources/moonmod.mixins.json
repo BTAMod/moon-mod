@@ -9,7 +9,6 @@
     "OxygenBarComponentMixin",
     "RenderGlobalMixin",
     "WorldMixin",
-    "block.BlockLampMixin",
     "block.BlockTorchMixin"
   ],
   "client": [

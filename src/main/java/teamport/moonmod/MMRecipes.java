@@ -41,6 +41,13 @@ public class MMRecipes implements RecipeEntrypoint {
 			.addInput('2', Item.doorOak);
 
 		RecipeBuilder.Shaped(MOD_ID)
+			.setShape( " G ", "GRI", " I ")
+			.addInput('G', Block.glass)
+			.addInput('R', Item.dustGlowstone)
+			.addInput('I', Item.ingotIron)
+			.create("lamp", MMBlocks.lamp.getDefaultStack());
+
+		RecipeBuilder.Shaped(MOD_ID)
 			.setShape("11", "11")
 			.addInput('1', Item.bucketMilk)
 			.setConsumeContainer(false)

@@ -7,6 +7,11 @@ tile.moonmod.cheese.desc=A solid curd of coagulated milk.
 tile.moonmod.portal.moon.name=Moon Portal
 tile.moonmod.portal.moon.desc=A portal to the Moon.
 
+tile.moonmod.lamp.name=Lunar Lamp
+tile.moonmod.lamp.desc=A lamp powered by glowstone that can be toggled with a sonic screwdriver.
+tile.moonmod.lamp.unlit.name=Unlit Lunar Lamp
+tile.moonmod.lamp.unlit.desc=An unlit lamp powered by glowstone that can be toggled with a sonic screwdriver.
+
 tile.moonmod.wool.reinforced.name=Reinforced Wool
 tile.moonmod.wool.reinforced.desc=Wool and cloth lined with gold to protect from UVs.
 tile.moonmod.wool.reinforced.white.name=White Reinforced Wool

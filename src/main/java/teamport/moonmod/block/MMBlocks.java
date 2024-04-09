@@ -73,14 +73,23 @@ public class MMBlocks {
 		.setBlockColor(new BlockColorWater())
 		.build(new BlockPortalMoon("portal.moon", blockID++, 3, MMBlocks.cheese.id, fire.id));
 
-	public static final Block litLamp = new BlockBuilder(MOD_ID)
+	public static final Block lamp = new BlockBuilder(MOD_ID)
 		.setBlockSound(BlockSounds.GLASS)
-		.setHardness(0.5f)
-		.setTags((BlockTags.NOT_IN_CREATIVE_MENU))
-		.build(new BlockLitLamp("lamp.lit", blockID++))
-		.withLightEmission(0.9375f)
-		.withDisabledStats()
-		.withDisabledNeighborNotifyOnMetadataChange();
+		.setHardness(0.6f)
+		.setResistance(6.0f)
+		.setLuminance(15)
+		.setTextures("lamp.png")
+		.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+		.build(new BlockMoonLamp("lamp", blockID++, true));
+
+	public static final Block lampUnlit = new BlockBuilder(MOD_ID)
+		.setBlockSound(BlockSounds.GLASS)
+		.setHardness(0.6f)
+		.setResistance(6.0f)
+		.setLuminance(0)
+		.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+		.setTextures("lampUnlit.png")
+		.build(new BlockMoonLamp("lamp.unlit", blockID++, false));
 
 	public void initializeBlocks(){
 	}
