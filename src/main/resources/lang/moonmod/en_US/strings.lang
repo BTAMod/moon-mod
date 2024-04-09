@@ -1,7 +1,7 @@
 moonmod.worldtype.moon.name=The Moon
 moonmod.worldtype.moon.desc=A barren and flat satellite far away from home.
 
-biome.moonmod.lunar.plains=Lunar Plains
+moonmod.biome.moon=Lunar Plains
 
 dimension.moon.name=The Moon
 
