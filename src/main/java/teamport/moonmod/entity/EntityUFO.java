@@ -17,6 +17,15 @@ public class EntityUFO extends EntityAnimal {
 		skinName = "ufo";
 	}
 
+	public String getEntityTexture() {
+		return "/assets/moonmod/mob/" + this.skinName + "/" + this.getSkinVariant() + ".png";
+	}
+	@Override
+	public int getSkinVariant() {
+		int skinVariantCount = 5;
+		return this.entityData.getByte(1) % skinVariantCount;
+	}
+
 	@Override
 	public String getLivingSound() {
 		return random.nextInt(1000) == 0 ? "moonmod.yippee" : null;

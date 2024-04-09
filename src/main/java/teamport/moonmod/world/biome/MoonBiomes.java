@@ -5,10 +5,8 @@ import net.minecraft.core.world.biome.Biomes;
 import teamport.moonmod.MoonMod;
 
 public class MoonBiomes {
-	public static Biome BIOME_MOON = new BiomeMoon("moon.lunar.plains");
+	public static Biome BIOME_MOON =
+		Biomes.register(MoonMod.MOD_ID + ":moon.lunar.plains",
+			new BiomeMoon("moonmod.lunar.plains"));
 
-	public void initializeBiomes() {
-
-		Biomes.register(MoonMod.MOD_ID + ":moon.lunar.plains", BIOME_MOON);
-	}
 }

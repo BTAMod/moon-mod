@@ -50,7 +50,6 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 	public void beforeGameStart() {
 		MMConfig.cfg.loadConfig();
 
-		new MoonBiomes().initializeBiomes();
 		BiomeProviderMoon.init();
 		MOON_WORLD = WorldTypes.register(MoonMod.MOD_ID + ":moon", new WorldTypeMoon("moonmod.worldtype.moon"));
 

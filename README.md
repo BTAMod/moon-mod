@@ -13,7 +13,7 @@ To get to the Moon you must make a cheese portal using milk. (Four buckets is a 
 
 Then you need to make a Sonic Screwdriver using redstone and iron.
 
-Then once your portal is assembled, right click it with the screwdriver!
+Then, once your portal is assembled, right click it with the screwdriver!
 
 But remember - there's __NO AIR__ on the moon!
 

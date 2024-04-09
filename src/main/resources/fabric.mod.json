@@ -3,9 +3,11 @@
   "id": "moonmod",
   "version": "${version}",
 
-  "name": "MoonMod",
+  "name": "Moon Mod",
   "description": "A remake and port of Sutr90's Moon Mod!",
   "authors": [
+		"LukeisStuff",
+		"CookieCakes",
     "BTA Team Port",
 		"Sutr90 (Original Dev)"
   ],
@@ -51,7 +53,7 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.13.3"
+		"fabricloader": ">=0.15.5"
   },
   "suggests": {
   }
