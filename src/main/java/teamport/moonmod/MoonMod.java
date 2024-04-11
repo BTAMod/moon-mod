@@ -1,6 +1,10 @@
 package teamport.moonmod;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.gui.guidebook.mobs.MobInfoRegistry;
+import net.minecraft.core.block.Block;
+import net.minecraft.core.item.Item;
+import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.type.WorldType;
 import net.minecraft.core.world.type.WorldTypes;
 import org.slf4j.Logger;
@@ -39,6 +43,8 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 				UFOModel.class)));
 
 		SoundHelper.Client.addSound(MOD_ID, "yippee.wav");
+
+		MobInfoRegistry.register(EntityUFO.class, "moon.ufo.name", "moon.ufo.desc", 10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(Item.dustRedstone), 1.0f, 0 ,2)});
 	}
 
 	@Override

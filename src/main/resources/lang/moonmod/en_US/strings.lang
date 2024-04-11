@@ -7,3 +7,6 @@ dimension.moon.name=The Moon
 
 moonmod.tent.build.fail=Cannot build a tent here.
 moonmod.tent.destroy.fail=Cannot destroy tent.
+
+moon.ufo.name=U.F.O
+moon.ufo.desc=A quirky lifeform found commonly on the moon, emits a strange sound of joy.
