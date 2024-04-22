@@ -195,5 +195,7 @@ public class MMRecipes implements RecipeEntrypoint {
 
 	@Override
 	public void initNamespaces() {
+		RecipeBuilder.initNameSpace(MOD_ID);
+		RecipeBuilder.getRecipeNamespace(MOD_ID);
 	}
 }
