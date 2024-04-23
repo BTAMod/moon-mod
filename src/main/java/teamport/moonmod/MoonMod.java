@@ -30,7 +30,7 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 	public static final String MOD_ID = "moonmod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static WorldType MOON_WORLD;
-	public static Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MMBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
+	public static Dimension dimensionMoon;
 
     public static void dimensionShift(int dim) {
 		Minecraft mc = Minecraft.getMinecraft(Minecraft.class);
