@@ -9,7 +9,7 @@ import teamport.moonmod.MoonMod;
 import teamport.moonmod.block.MMBlocks;
 
 public class ModDimensions {
-	public static final Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MMBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
+	public static Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MMBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
 	static
 	{
 		Dimension.registerDimension(MMConfig.cfg.getInt("IDs.dimension"), dimensionMoon);
