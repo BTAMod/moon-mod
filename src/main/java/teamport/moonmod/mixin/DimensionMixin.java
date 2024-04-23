@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import teamport.moonmod.MoonMod;
 import teamport.moonmod.block.MMBlocks;
 
+import static net.minecraft.core.world.Dimension.registerDimension;
 import static teamport.moonmod.world.ModDimensions.dimensionMoon;
 
 @Mixin(value = Dimension.class, remap = false)
@@ -17,6 +18,6 @@ public abstract class DimensionMixin {
 	@Inject(method = "<clinit>", at = @At("TAIL"))
 	private static void addDimension(CallbackInfo ci){
 		dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MMBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
-		Dimension.registerDimension(3, dimensionMoon);
+		registerDimension(3, dimensionMoon);
 	}
 }

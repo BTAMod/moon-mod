@@ -8,8 +8,7 @@ import teamport.moonmod.MoonMod;
 import teamport.moonmod.block.MMBlocks;
 
 public class ModDimensions {
-	public static Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MMBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
-
+	public static Dimension dimensionMoon;
 	public static void register() {}
 
 	public static void dimensionShift(int targetDimension){
