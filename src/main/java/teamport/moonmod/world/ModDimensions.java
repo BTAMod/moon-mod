@@ -4,16 +4,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.world.Dimension;
 import net.minecraft.core.world.World;
-import teamport.moonmod.MMConfig;
 import teamport.moonmod.MoonMod;
 import teamport.moonmod.block.MMBlocks;
 
 public class ModDimensions {
 	public static Dimension dimensionMoon = new Dimension("moon", Dimension.overworld, 3f, MMBlocks.portalMoon.id).setDefaultWorldType(MoonMod.MOON_WORLD);
-	static
-	{
-		Dimension.registerDimension(MMConfig.cfg.getInt("IDs.dimension"), dimensionMoon);
-	}
+
 	public static void register() {}
 
 	public static void dimensionShift(int targetDimension){
