@@ -9,7 +9,7 @@ import teamport.moonmod.MoonMod;
 import teamport.moonmod.block.MMBlocks;
 
 import static net.minecraft.core.world.Dimension.registerDimension;
-import static teamport.moonmod.world.ModDimensions.dimensionMoon;
+import static teamport.moonmod.MoonMod.dimensionMoon;
 
 @Mixin(value = Dimension.class, remap = false)
 public abstract class DimensionMixin {

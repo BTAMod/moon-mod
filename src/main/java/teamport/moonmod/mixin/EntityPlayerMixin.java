@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import teamport.moonmod.world.ModDimensions;
+import teamport.moonmod.MoonMod;
 
 @Mixin(value = EntityPlayer.class, remap = false)
 public abstract class EntityPlayerMixin extends EntityLiving {
@@ -27,12 +27,12 @@ public abstract class EntityPlayerMixin extends EntityLiving {
 		int delayMillis = 8000;
 		long currentTime = System.currentTimeMillis();
 		if (this.y > this.world.getWorldType().getMaxY()+5 && !world.isDaytime() && (currentTime-timeOfLastDimensionShift > delayMillis)){
-			int targetDim = ModDimensions.dimensionMoon.id;
+			int targetDim = MoonMod.dimensionMoon.id;
 
 			if (this.dimension == targetDim) {
-				ModDimensions.dimensionShift(0);
+				MoonMod.dimensionShift(0);
 			} else {
-				ModDimensions.dimensionShift(targetDim);
+				MoonMod.dimensionShift(targetDim);
 				this.yd = 0;
 			}
 			timeOfLastDimensionShift = currentTime;
