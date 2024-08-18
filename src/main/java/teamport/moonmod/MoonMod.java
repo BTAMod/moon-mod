@@ -23,8 +23,7 @@ import turniplabs.halplibe.helper.EntityHelper;
 import turniplabs.halplibe.helper.SoundHelper;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
 import turniplabs.halplibe.util.GameStartEntrypoint;
-import useless.dragonfly.helper.ModelHelper;
-
+import org.useless.dragonfly.helper.ModelHelper;
 
 public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStartEntrypoint {
 	public static final String MOD_ID = "moonmod";
@@ -73,14 +72,7 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 
 	@Override
 	public void beforeClientStart() {
-		EntityHelper.Client.assignEntityRenderer(EntityUFO.class,
-			new UFORenderer(ModelHelper.getOrCreateEntityModel(MOD_ID,
-				"entity/ufo.json",
-				UFOModel.class)));
-
-		SoundHelper.Client.addSound(MOD_ID, "yippee.wav");
-
-		MobInfoRegistry.register(EntityUFO.class, "moon.ufo.name", "moon.ufo.desc", 10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(Item.dustRedstone), 1.0f, 0 ,2)});
+		SoundHelper.addSound(MOD_ID, "yippee.wav");
 	}
 
 	@Override
@@ -99,10 +91,19 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 		new MMBlocks().initializeBlocks();
 		new MMItems().initializeItems();
 
-		EntityHelper.Core.createEntity(EntityUFO.class, MMConfig.cfg.getInt("IDs.ufo"), "ufo");
+		EntityHelper.createEntity(EntityUFO.class, MMConfig.cfg.getInt("IDs.ufo"), "ufo",
+		    () -> new UFORenderer(ModelHelper.getOrCreateEntityModel(
+		        MOD_ID,
+				"entity/ufo.json",
+				UFOModel.class
+			))
+		);
+
+
 	}
 
 	@Override
 	public void afterGameStart() {
+		MobInfoRegistry.register(EntityUFO.class, "moon.ufo.name", "moon.ufo.desc", 10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(Item.dustRedstone), 1.0f, 0 ,2)});
 	}
 }

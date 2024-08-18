@@ -103,7 +103,8 @@ public class WorldTypeMoon extends WorldTypeOverworld implements ISpace {
 
 
 	@Override
-	public Vec3d getFogColor(float timeOfDay, float partialTick) {
+	public Vec3d getFogColor(World world, double x, double y, double z, float celestialAngle, float partialTick) {
+	    float timeOfDay = MathHelper.clamp(MathHelper.cos(celestialAngle * 3.1415927F * 2.0F) * 2.0F + 0.5F, 0.0F, 1.0F);
 		int i = 0;
 		float f2 = MathHelper.cos(timeOfDay * 3.141593F * 2.0F) * 2.0F + 0.5F;
 		if(f2 < 0.0F)

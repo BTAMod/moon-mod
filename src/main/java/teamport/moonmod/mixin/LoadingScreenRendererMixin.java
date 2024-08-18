@@ -17,7 +17,7 @@ public class LoadingScreenRendererMixin {
 	@Inject(method = "updateLoadingBackground(Lnet/minecraft/core/world/Dimension;)V", at = @At("HEAD"), cancellable = true)
 	private void customBackground(Dimension dimension, CallbackInfo ci){
 		if (dimension == MoonMod.dimensionMoon){
-			this.backgroundPath = "/assets/moonmod/block/regolith.png";
+			this.backgroundPath = "/assets/moonmod/textures/block/regolith.png";
 			ci.cancel();
 		}
 	}

@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "DimensionMixin",
+    "EntityMixin",
     "EntityLivingMixin",
-    "EntityPlayerMixin",
     "LoadingScreenRendererMixin",
     "OxygenBarComponentMixin",
     "RenderGlobalMixin",
