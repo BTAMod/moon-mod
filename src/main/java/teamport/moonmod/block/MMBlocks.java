@@ -3,6 +3,7 @@ package teamport.moonmod.block;
 import net.minecraft.client.render.block.color.BlockColorWater;
 import net.minecraft.client.render.colorizer.Colorizers;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockPortal;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.block.ItemBlockPainted;
@@ -73,7 +74,7 @@ public class MMBlocks {
 		.setTextures("minecraft:block/water_still")
 		.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
 		.setBlockColor(block -> new BlockColorWater(Colorizers.water))
-		.build(new BlockPortalMoon("portal.moon", blockID++, 3, MMBlocks.cheese.id, fire.id));
+		.build(new BlockPortal("portal.moon", blockID++, 3, MMBlocks.cheese.id, fire.id));
 
 	public static final Block lamp = new BlockBuilder(MOD_ID)
 		.setBlockSound(BlockSounds.GLASS)

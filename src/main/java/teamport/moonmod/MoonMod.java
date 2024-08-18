@@ -31,6 +31,10 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 	public static WorldType MOON_WORLD;
 	public static Dimension dimensionMoon;
 
+	static {
+		SoundHelper.addSound(MOD_ID, "yippee.wav");
+	}
+
     public static void dimensionShift(int dim) {
 		Minecraft mc = Minecraft.getMinecraft(Minecraft.class);
 		Dimension lastDim = Dimension.getDimensionList().get(mc.thePlayer.dimension);

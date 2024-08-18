@@ -1,6 +1,7 @@
 package teamport.moonmod.block;
 
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockPortal;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.player.EntityPlayer;
@@ -34,7 +35,7 @@ public class BlockCheese extends Block {
 		else if (player.getHeldItem().getItem() instanceof ItemScrewdriver) {
 			player.getHeldItem().damageItem(1, player);
 
-			BlockPortalMoon portal = (BlockPortalMoon) MMBlocks.portalMoon;
+			BlockPortal portal = (BlockPortal) MMBlocks.portalMoon;
 			return portal.tryToCreatePortal(world, x, y, z);
 		} else return false;
 	}

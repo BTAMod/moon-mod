@@ -52,10 +52,12 @@ public class MMRecipes implements RecipeEntrypoint {
 			.addInput('1', Item.bucketMilk)
 			.setConsumeContainer(false)
 			.create("cheese_block_from_milk", MMBlocks.cheese.getDefaultStack());
+
 		RecipeBuilder.Shaped(MOD_ID)
 			.setShape("11", "11")
 			.addInput('1', MMItems.cheese)
 			.create("cheese_block_from_cheese", MMBlocks.cheese.getDefaultStack());
+
 		RecipeBuilder.Shapeless(MOD_ID)
 			.addInput(MMBlocks.cheese)
 			.create("cheese_from_cheese_block", new ItemStack(MMItems.cheese, 4));
