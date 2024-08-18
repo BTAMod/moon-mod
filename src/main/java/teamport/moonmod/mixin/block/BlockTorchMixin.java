@@ -9,14 +9,11 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import teamport.moonmod.world.ISpace;
-
-import java.util.Random;
 
 @Mixin(value = BlockTorch.class, remap = false)
 public abstract class BlockTorchMixin extends Block {
-
 	@Unique
 	BlockTorch torch = (BlockTorch) (Object) this;
 
@@ -24,13 +21,10 @@ public abstract class BlockTorchMixin extends Block {
 		super(key, id, material);
 	}
 
-	@Inject(method = "updateTick", at = @At("TAIL"), cancellable = true)
-	private void moonMod_updateTick(World world, int x, int y, int z, Random rand, CallbackInfo ci) {
-		if (world.worldType instanceof ISpace && ((ISpace) world.worldType).suffocate()) {
-			torch.dropBlockWithCause(world, EnumDropCause.WORLD, x, y, z, 0, null);
-			world.setBlockWithNotify(x, y, z, 0);
-
-			ci.cancel();
+	@Inject(method = "canPlaceBlockAt", at = @At("RETURN"), cancellable = true)
+	private void moonmod_canPlaceBlockAt(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir) {
+	    if (world.worldType instanceof ISpace && ((ISpace) world.worldType).suffocate() && this.id == Block.torchCoal.id) {
+			cir.setReturnValue(false);
 		}
 	}
 }

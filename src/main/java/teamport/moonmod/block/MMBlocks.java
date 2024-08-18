@@ -1,6 +1,7 @@
 package teamport.moonmod.block;
 
 import net.minecraft.client.render.block.color.BlockColorWater;
+import net.minecraft.client.render.colorizer.Colorizers;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
@@ -19,7 +20,7 @@ public class MMBlocks {
 		.setBlockSound(BlockSounds.GRAVEL)
 		.setHardness(0.5f)
 		.setResistance(0.5f)
-		.setTextures("regolith.png")
+		.setTextures("moonmod:block/regolith")
 		.setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.CAVES_CUT_THROUGH)
 		.build(new Block("regolith", blockID++, Material.dirt));
 
@@ -28,13 +29,14 @@ public class MMBlocks {
 		.setHardness(1.1f)
 		.setResistance(6.0f)
 		.setItemBlock(block -> new ItemBlockPainted(block, false))
+		.setBlockModel(block -> new BlockModelReinforcedWool(block))
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
 		.build(new BlockReinforcedWool("wool.reinforced", blockID++));
 
 	public static final Block woolInvincible = new BlockBuilder(MOD_ID)
 		.setBlockSound(BlockSounds.CLOTH)
 		.setUnbreakable()
-		.setTextures("clothBlock.png")
+		.setTextures("moonmod:block/clothBlock")
 		.setTags(BlockTags.NOT_IN_CREATIVE_MENU)
 		.build(new BlockReinforcedWool("wool.reinforced", blockID++));
 
@@ -42,7 +44,7 @@ public class MMBlocks {
 		.setBlockSound(BlockSounds.CLOTH)
 		.setHardness(1.1f)
 		.setResistance(6.0f)
-		.setTextures("tent.png")
+		.setTextures("moonmod:block/tent")
 		.setItemBlock(block -> new ItemBlockPainted(block, false))
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH)
 		.build(new BlockTent("tent", blockID++));
@@ -50,7 +52,7 @@ public class MMBlocks {
 	public static final Block tentInvincible = new BlockBuilder(MOD_ID)
 		.setBlockSound(BlockSounds.CLOTH)
 		.setUnbreakable()
-		.setTextures("tent.png")
+		.setTextures("moonmod:block/tent")
 		.setItemBlock(block -> new ItemBlockPainted(block, false))
 		.setTags(BlockTags.NOT_IN_CREATIVE_MENU)
 		.build(new BlockTent("tent", blockID++));
@@ -59,7 +61,7 @@ public class MMBlocks {
 		.setBlockSound(BlockSounds.WOOD)
 		.setHardness(0.6f)
 		.setResistance(0.6f)
-		.setTextures("cheeseBlock.png")
+		.setTextures("moonmod:block/cheeseBlock")
 		.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.MINEABLE_BY_AXE)
 		.build(new BlockCheese("cheese", blockID++, Material.cloth));
 
@@ -68,9 +70,9 @@ public class MMBlocks {
 		.setHardness(-1.0f)
 		.setResistance(-1.0f)
 		.setLuminance(15)
-		.setTextures(13, 12)
+		.setTextures("minecraft:block/water_still")
 		.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
-		.setBlockColor(new BlockColorWater())
+		.setBlockColor(block -> new BlockColorWater(Colorizers.water))
 		.build(new BlockPortalMoon("portal.moon", blockID++, 3, MMBlocks.cheese.id, fire.id));
 
 	public static final Block lamp = new BlockBuilder(MOD_ID)
@@ -78,7 +80,7 @@ public class MMBlocks {
 		.setHardness(0.6f)
 		.setResistance(6.0f)
 		.setLuminance(15)
-		.setTextures("lamp.png")
+		.setTextures("moonmod:block/lamp")
 		.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 		.build(new BlockMoonLamp("lamp", blockID++, true));
 
@@ -88,7 +90,7 @@ public class MMBlocks {
 		.setResistance(6.0f)
 		.setLuminance(0)
 		.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-		.setTextures("lampUnlit.png")
+		.setTextures("moonmod:block/lampUnlit")
 		.build(new BlockMoonLamp("lamp.unlit", blockID++, false));
 
 	public void initializeBlocks(){

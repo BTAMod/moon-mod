@@ -7,19 +7,23 @@ import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.world.World;
+import net.minecraft.core.util.collection.NamespaceID;
+import net.minecraft.core.WeightedRandomLootObject;
 import teamport.moonmod.block.MMBlocks;
 import teamport.moonmod.item.MMItems;
 
 public class EntityUFO extends EntityAnimal {
-
 	public EntityUFO(World world) {
 		super(world);
-		skinName = "ufo";
+		textureIdentifier = new NamespaceID("moonmod", "ufo");
+		this.mobDrops.add(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 0, 2));
 	}
 
+   @Override
 	public String getEntityTexture() {
-		return "/assets/moonmod/mob/" + this.skinName + "/" + this.getSkinVariant() + ".png";
+		return "/assets/moonmod/textures/mob/ufo/" + this.getSkinVariant() + ".png";
 	}
+
 	@Override
 	public int getSkinVariant() {
 		int skinVariantCount = 5;
@@ -42,11 +46,6 @@ public class EntityUFO extends EntityAnimal {
 	}
 
 	@Override
-	protected int getDropItemId() {
-		return Item.dustRedstone.id;
-	}
-
-	@Override
 	public boolean getCanSpawnHere() {
 		int x = MathHelper.floor_double(this.x);
 		int y = MathHelper.floor_double(this.bb.minY);
@@ -65,10 +64,8 @@ public class EntityUFO extends EntityAnimal {
 		ItemStack stack = player.getHeldItem();
 
 		if (stack != null && stack.getItem() == MMItems.cheese) {
-			stack.consumeItem(player);
 			playLivingSound();
-
-			player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+            stack.consumeItem(player);
 
 			return true;
 		} else return false;
@@ -76,12 +73,12 @@ public class EntityUFO extends EntityAnimal {
 
 	@Override
 	public void onLivingUpdate() {
+		super.onLivingUpdate();
 		EntityPlayer player = world.getClosestPlayerToEntity(this, 8.0d);
 		if (player != null && player.getHeldItem() != null) {
 			if (player.getHeldItem().getItem() == MMItems.cheese) {
-				faceEntity(player, 1.0f, 1.0f);
-				move(0.0d, yd, 0.0d);
-			} else super.onLivingUpdate();
-		} else if (player == null || player.getHeldItem() == null) super.onLivingUpdate();
+				faceEntity(player, 100.0f, 10.0f);
+			}
+		}
 	}
 }

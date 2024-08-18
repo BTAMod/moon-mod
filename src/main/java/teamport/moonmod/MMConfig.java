@@ -12,7 +12,7 @@ public class MMConfig {
 	static {
 		properties.addCategory("IDs")
 			.addEntry("startingItemID", 16600)
-			.addEntry("startingBlockID", 2000)
+			.addEntry("startingBlockID", 7900)
 			.addEntry("dimension", 3)
 			.addEntry("ufo", 200);
 

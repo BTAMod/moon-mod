@@ -56,6 +56,9 @@ public class MMRecipes implements RecipeEntrypoint {
 			.setShape("11", "11")
 			.addInput('1', MMItems.cheese)
 			.create("cheese_block_from_cheese", MMBlocks.cheese.getDefaultStack());
+		RecipeBuilder.Shapeless(MOD_ID)
+			.addInput(MMBlocks.cheese)
+			.create("cheese_from_cheese_block", new ItemStack(MMItems.cheese, 4));
 
 		clothShape
 			.addInput('1', Block.wool, 0)
