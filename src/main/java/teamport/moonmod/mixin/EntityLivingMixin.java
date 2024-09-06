@@ -32,7 +32,7 @@ public abstract class EntityLivingMixin extends Entity {
         super(world);
     }
 
-    @Inject(method = "moveEntityWithHeading(FF)V", at = @At("HEAD"))
+    /*@Inject(method = "moveEntityWithHeading(FF)V", at = @At("HEAD"))
     private void moonMod_getGravity(float moveStrafing, float moveForward, CallbackInfo cbi){
         gravityScale = 1f;
         if (world.getWorldType() instanceof ISpace && !(thisAs instanceof EntityUFO)){
@@ -54,5 +54,5 @@ public abstract class EntityLivingMixin extends Entity {
     @ModifyVariable(method = "causeFallDamage(F)V", at = @At(value = "STORE"), ordinal = 0)
     private int moonMod_fallDamage(int i){
         return (int)((i * gravityScale) - (3/gravityScale) + 3);
-    }
+    }*/
 }

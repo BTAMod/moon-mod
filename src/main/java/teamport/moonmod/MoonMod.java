@@ -9,12 +9,13 @@ import net.minecraft.core.world.Dimension;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.type.WorldType;
 import net.minecraft.core.world.type.WorldTypes;
+import com.mojang.nbt.CompoundTag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import teamport.moonmod.block.MMBlocks;
 import teamport.moonmod.entity.EntityUFO;
-import teamport.moonmod.entity.render.UFOModel;
-import teamport.moonmod.entity.render.UFORenderer;
+import teamport.moonmod.entity.EntityRocket;
+import teamport.moonmod.entity.render.*;
 import teamport.moonmod.item.MMItems;
 import teamport.moonmod.world.BiomeProviderMoon;
 import teamport.moonmod.world.WorldTypeMoon;
@@ -35,16 +36,19 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 		Minecraft mc = Minecraft.getMinecraft(Minecraft.class);
 		Dimension lastDim = Dimension.getDimensionList().get(mc.thePlayer.dimension);
 		Dimension newDim = Dimension.getDimensionList().get(dim);
-		System.out.println("Switching to dimension \"" + newDim.getTranslatedName() + "\"!!");
+		System.out.println("Switching to dimension \"" + newDim.getTranslatedName() + "\"!! (" + dim + ")");
 		mc.thePlayer.dimension = dim;
-		mc.theWorld.setEntityDead(mc.thePlayer);
-		mc.thePlayer.removed = false;
 		double d = mc.thePlayer.x;
 		double d1 = mc.thePlayer.z;
-		double newY = mc.thePlayer.y;
+		double newY = ((EntityRocket) mc.thePlayer.vehicle).y;
 		d *= Dimension.getCoordScale(lastDim, newDim);
 		d1 *= Dimension.getCoordScale(lastDim, newDim);
 		mc.thePlayer.moveTo(d, newY, d1, mc.thePlayer.yRot, mc.thePlayer.xRot);
+		CompoundTag rocket = new CompoundTag();
+		((EntityRocket) mc.thePlayer.vehicle).saveWithoutId(rocket);
+		//mc.theWorld.setEntityDead(((EntityRocket) mc.thePlayer.vehicle));
+		mc.theWorld.setEntityDead(mc.thePlayer);
+		mc.thePlayer.removed = false;
 		if (mc.thePlayer.isAlive()) {
 			mc.theWorld.updateEntityWithOptionalForce(mc.thePlayer, false);
 		}
@@ -60,7 +64,13 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 		mc.thePlayer.world = mc.theWorld;
 		if (mc.thePlayer.isAlive()) {
 			mc.thePlayer.moveTo(d, newY, d1, mc.thePlayer.yRot, mc.thePlayer.xRot);
-			mc.theWorld.updateEntityWithOptionalForce(mc.thePlayer, false);
+			EntityRocket rocketEntity = new EntityRocket(world);
+			rocketEntity.load(rocket);
+			rocketEntity.moveTo(d, newY, d1, rocketEntity.yRot, rocketEntity.xRot);
+			world.updateEntityWithOptionalForce(mc.thePlayer, false);
+			world.entityJoinedWorld(rocketEntity);
+			mc.thePlayer.startRiding(rocketEntity);
+			rocketEntity.state = 3;
 		}
 	}
 
@@ -97,6 +107,9 @@ public class MoonMod implements ModInitializer, GameStartEntrypoint, ClientStart
 				"entity/ufo.json",
 				UFOModel.class
 			))
+		);
+		EntityHelper.createEntity(EntityRocket.class, MMConfig.cfg.getInt("IDs.ufo") + 1, "rocketman",
+		    () -> new RocketRenderer()
 		);
 
 

@@ -11,7 +11,8 @@
     "OxygenBarComponentMixin",
     "RenderGlobalMixin",
     "WorldMixin",
-    "block.BlockTorchMixin"
+    "block.BlockTorchMixin",
+    "EntityCameraThirdPersonRearMixin"
   ],
   "client": [
   ],

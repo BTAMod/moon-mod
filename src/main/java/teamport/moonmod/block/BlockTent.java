@@ -10,6 +10,7 @@ import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
 import teamport.moonmod.MoonMod;
 import teamport.moonmod.item.ItemScrewdriver;
+import teamport.moonmod.entity.EntityRocket;
 
 import static teamport.moonmod.MoonMod.MOD_ID;
 
@@ -27,13 +28,19 @@ public class BlockTent extends Block {
 			if (world.getBlockId(x, y, z) == MMBlocks.tentInvincible.id) {
 				destroyTent(x, y, z, world, player);
 			} else {
-				if (!checkBasis(x, y, z, player, world))
+				/*if (!checkBasis(x, y, z, player, world))
 					return false;
 
-				buildTent(x, y, z, world);
+				buildTent(x, y, z, world);*/
+				EntityRocket rocket = EntityRocket.buildRocket(world, x, y, z);
+				if (rocket == null) return true;
+				rocket.moveTo(x, y, z, 0, 0);
+				world.entityJoinedWorld(rocket);
+                rocket.interact(player);
 			}
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	private boolean checkBasis(int x, int y, int z, EntityPlayer player, World world) {
