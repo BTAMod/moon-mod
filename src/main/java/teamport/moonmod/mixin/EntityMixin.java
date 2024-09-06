@@ -22,11 +22,16 @@ import teamport.moonmod.world.ISpace;
 
 @Mixin(value = Entity.class, remap = false)
 public abstract class EntityMixin {
-	@Shadow double x;
-	@Shadow double y;
-	@Shadow double z;
-	@Shadow World world;
-	@Shadow int airSupply;
+	@Shadow
+	public double x;
+	@Shadow
+	public double y;
+	@Shadow
+	public double z;
+	@Shadow
+	public World world;
+	@Shadow
+	public int airSupply;
 
 	@Unique
 	private boolean moonMod_hasSuit() {
